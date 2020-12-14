@@ -1,9 +1,9 @@
 window.onload = function(e) {
 
-    setTimeout(function () {
+    /*setTimeout(function () {
         let mess =  document.querySelector('#status-message');
         mess.style.display = 'none';
         console.log(mess);
-    },5000);
+    },2500);*/
 
 };
