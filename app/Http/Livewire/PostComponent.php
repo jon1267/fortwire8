@@ -21,12 +21,6 @@ class PostComponent extends Component
     public $img;
     public $oldImage;
     public $isModal;
-    public $flashShown;
-
-    public function hideFlash()
-    {
-        $this->flashShown = false;
-    }
 
     public function render()
     {
