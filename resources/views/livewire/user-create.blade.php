@@ -11,41 +11,49 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
-                            <label for="formTitle" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
+                            <label for="formName" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="formTitle" wire:model.lazy="title">
-                            @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
+                                   id="formName" wire:model.lazy="name">
+                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
-                            <label for="formBody" class="block text-gray-700 text-sm font-bold mb-2">Body:</label>
-                            <input type="body" class="shadow appearance-none border rounded w-full py-2 px-3
+                            <label for="formEmail" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="formBody" wire:model.lazy="body">
-                            @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
+                                   id="formEmail" wire:model.lazy="email">
+                            @error('email') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
-                            @if($this->img)
-                                <div class="flex items-center">
-                                    <img src="{{ asset('img/'. $this->img) }}" class="h-15 w-16" alt="">
-                                    <p>Старый рисунок</p>
+                            <label for="formPassword" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                            <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3
+                                text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   id="formPassword" wire:model.lazy="password">
+                            @error('password') <span class="text-red-500">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="formPasswordConfirmation" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
+                            <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3
+                                text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                   id="formPasswordConfirmation" wire:model.lazy="password_confirmation">
+                        </div>
+
+                        <div class="mb-4">
+                            @foreach($roles as $role)
+                                <div class="form-check">
+                                    <!--  name="roles[]" -->
+                                    <input class="form-check-input" wire:model="checkedRoles"
+                                           type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}"
+                                           @isset($userr) @if(in_array($role->id, $userr->roles->pluck('id')->toArray())) checked @endif @endisset
+                                    >
+                                    <label class="form-check-label" for="{{ $role->name }}">
+                                        {{ $role->name }}
+                                    </label>
                                 </div>
-                            @endif
-                            <label for="formImage" class="block text-gray-700 text-sm font-bold mb-2">Post Image:</label>
-                            <input type="file" class="shadow appearance-none border rounded w-full py-2 px-3
-                                text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="formImage" wire:model.lazy="img">
-                            @error('img') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @endforeach
+                            @error('checkedRoles') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        {{--<div class="mb-4">
-                            <label for="formStatus" class="block text-gray-700 text-sm font-bold mb-2">Status</label>
-                            <select class="form-control" wire:model="status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                <option value="">Pilih</option>
-                                <option value="1">Premium</option>
-                                <option value="0">Free</option>
-                            </select>
-                            @error('status') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>--}}
+
                     </div>
                 </div>
 
