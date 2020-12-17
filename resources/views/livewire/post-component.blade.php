@@ -41,7 +41,7 @@
                             </td>
                             {{--<td class="border px-4 py-2">{{ $row->created_at }}</td>--}}
                             <td class="border px-4 py-2">
-                                <button wire:click="update({{ $row->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-2 rounded" title="Редактировать данные"><i class="fas fa-pen"></i></button>
+                                <button wire:click="edit({{ $row->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-2 rounded" title="Редактировать данные"><i class="fas fa-pen"></i></button>
                                 <button wire:click="delete({{ $row->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold px-3 py-2 rounded" title="Удалить данные"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>

@@ -18,6 +18,8 @@ class UserComponent extends Component
     public $user_id;
     public $isModal;
     public $checkedRoles;
+    public $updateMode = false;
+    public $isConfirmDelete = false;
 
     public function render()
     {
@@ -43,6 +45,7 @@ class UserComponent extends Component
         $this->password = '';
         $this->password_confirmation = '';
         $this->checkedRoles = [];
+        $this->updateMode = false;
     }
 
     public function openModal()
@@ -53,9 +56,11 @@ class UserComponent extends Component
     public function closeModal()
     {
         $this->isModal = false;
+        $this->resetValidation();
+
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $user = User::find($id);
         $this->user_id = $id;
@@ -63,17 +68,26 @@ class UserComponent extends Component
         $this->email = $user->email;
         $this->password = '';
         $this->password_confirmation = '';
+        $this->updateMode = true;
+
+        //курить редактирование юзера с уже имеющимися ролями...:)
+        //и редактир. пароля (не ввели, значит не меняеть, см в store validate)
+
+        //$this->checkedRoles = $user->roles->pluck('id')->toArray();
+        $this->checkedRoles  = [];
 
         $this->openModal();
     }
 
     public function store()
     {
-        // dd($this);
+        //dd($this);
         $this->validate([
             'name'  => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|between:8,25|confirmed',
+            'email' => 'required|email|max:255|unique:users,email,' . $this->user_id,
+            'password' => (!$this->updateMode) ?
+                'required|between:8,25|confirmed' :
+                'nullable|between:8,25|confirmed' ,
             'checkedRoles' => "required|array|min:1",
         ]);
 
@@ -88,13 +102,21 @@ class UserComponent extends Component
 
         $user->roles()->sync($this->checkedRoles);
 
-        session()->flash('message', 'Данные пользователя сохранены.');
+        session()->flash('message', 'Данные успешно сохранены.');
         $this->closeModal();
         $this->resetFields();
     }
 
+    public function confirmDelete($id)
+    {
+        $this->isConfirmDelete = $id;
+    }
+
     public function delete($id)
     {
+        User::find($id)->delete();
+        $this->isConfirmDelete = false;
 
+        session()->flash('message', 'Данные успешно удалены.');
     }
 }

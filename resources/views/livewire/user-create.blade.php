@@ -41,10 +41,10 @@
                         <div class="mb-4">
                             @foreach($roles as $role)
                                 <div class="form-check">
-                                    <!--  name="roles[]" -->
-                                    <input class="form-check-input" wire:model="checkedRoles"
+                                    <!--  name="roles[]"  -->
+                                    <input class="form-check-input" wire:model.defer="checkedRoles"
                                            type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}"
-                                           @isset($userr) @if(in_array($role->id, $userr->roles->pluck('id')->toArray())) checked @endif @endisset
+                                           @isset($checkedRoles) @if(in_array($role->id, $checkedRoles)) checked @endif @endisset
                                     >
                                     <label class="form-check-label" for="{{ $role->name }}">
                                         {{ $role->name }}

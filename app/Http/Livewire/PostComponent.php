@@ -80,7 +80,7 @@ class PostComponent extends Component
         $this->resetFields();
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $post = Post::find($id);
         $this->post_id = $id;

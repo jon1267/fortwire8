@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5df7a510-086e-41e3-a215-6c65208a7970" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PostComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PostComponent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UserComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UserComponent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post-create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/post-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/post-component.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +213,11 @@
       <workItem from="1607962304602" duration="9598000" />
       <workItem from="1608035580387" duration="4811000" />
       <workItem from="1608054113675" duration="7982000" />
-      <workItem from="1608113126946" duration="5143000" />
+      <workItem from="1608113126946" duration="10707000" />
+      <workItem from="1608138964402" duration="10324000" />
+      <workItem from="1608149488945" duration="487000" />
+      <workItem from="1608204375952" duration="8990000" />
+      <workItem from="1608227641563" duration="2087000" />
     </task>
     <servers />
   </component>
@@ -227,10 +233,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="703" y="246" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607685955028" />
-    <state x="1103" y="301" key="NewPhpFileDialog" timestamp="1608057325720">
+    <state x="1103" y="301" key="NewPhpFileDialog" timestamp="1608209071585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1103" y="301" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608057325720" />
+    <state x="1103" y="301" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608209071585" />
     <state x="471" y="177" key="SettingsEditor" timestamp="1607684162113">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
