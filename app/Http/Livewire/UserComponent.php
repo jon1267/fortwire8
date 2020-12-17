@@ -91,14 +91,21 @@ class UserComponent extends Component
             'checkedRoles' => "required|array|min:1",
         ]);
 
-        $user = User::updateOrcreate(
-            ['id' => $this->user_id],
-            [
-                'name' => $this->name,
-                'email'=> $this->email,
-                'password' => $this->password
-            ]
-        );
+        $data = [
+            'name' => $this->name,
+            'email'=> $this->email,
+        ];
+
+        /*if  (isset($this->password) && !empty($this->password)) {
+           $data['password'] = $this->password;
+        } говорят кодить с if() некошерно..) - заменил ?? и array_filter() */
+        
+        $data['password'] = $this->password ?? null;
+        //удаляем из массива $data null. если при корректировке не ввели пароль,
+        //тогда останется старый. но если стали вводить, пароль меняется.
+        //dd(array_filter($data));
+
+        $user = User::updateOrcreate(['id' => $this->user_id], array_filter($data));
 
         $user->roles()->sync($this->checkedRoles);
 
