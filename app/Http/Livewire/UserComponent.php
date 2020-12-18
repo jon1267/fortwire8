@@ -71,8 +71,6 @@ class UserComponent extends Component
         $this->updateMode = true;
 
         //курить редактирование юзера с уже имеющимися ролями...:)
-        //и редактир. пароля (не ввели, значит не меняеть, см в store validate)
-
         //$this->checkedRoles = $user->roles->pluck('id')->toArray();
         $this->checkedRoles  = [];
 
@@ -99,7 +97,7 @@ class UserComponent extends Component
         /*if  (isset($this->password) && !empty($this->password)) {
            $data['password'] = $this->password;
         } говорят кодить с if() некошерно..) - заменил ?? и array_filter() */
-        
+
         $data['password'] = $this->password ?? null;
         //удаляем из массива $data null. если при корректировке не ввели пароль,
         //тогда останется старый. но если стали вводить, пароль меняется.

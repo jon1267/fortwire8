@@ -11,38 +11,39 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
+                            <!-- wire:model.lazy="name" -->
                             <label for="formName" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   id="formName" wire:model.lazy="name">
+                                   id="formName" wire:model.defer="name">
                             @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="formEmail" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   id="formEmail" wire:model.lazy="email">
+                                   id="formEmail" wire:model.defer="email">
                             @error('email') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="formPassword" class="block text-gray-700 text-sm font-bold mb-2">Password: {{ $updateMode ? ' ( не вводите пароль, тогда останется старый )' : '' }}</label>
                             <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   id="formPassword" wire:model.lazy="password">
+                                   id="formPassword" wire:model.defer="password">
                             @error('password') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="formPasswordConfirmation" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
                             <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3
                                 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                   id="formPasswordConfirmation" wire:model.lazy="password_confirmation">
+                                   id="formPasswordConfirmation" wire:model.defer="password_confirmation">
                         </div>
 
                         <div class="mb-4">
                             @foreach($roles as $role)
                                 <div class="form-check">
-                                    <!--  name="roles[]"  -->
-                                    <input class="form-check-input" wire:model.defer="checkedRoles"
+                                    <!-- wire:model.defer="checkedRoles"  name="roles[]" , а вот wire:key="<< $role->id >>" чуть помогло, но в checkedRoles и старые и новые клики чекбокса ??? -->
+                                    <input class="form-check-input"  wire:model.defer="checkedRoles" wire:key="{{ $role->id }}"
                                            type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}"
                                            @isset($checkedRoles) @if(in_array($role->id, $checkedRoles)) checked @endif @endisset
                                     >

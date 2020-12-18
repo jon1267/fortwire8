@@ -76,7 +76,6 @@
                                 class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                             <button wire:click="edit({{ $user->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-2 rounded" title="Редактировать данные"><i class="fas fa-pen"></i></button>
                             <button wire:click="confirmDelete({{ $user->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold px-3 py-2 rounded" title="Удалить данные"><i class="fas fa-trash-alt"></i></button>
-
                         </td>
                     </tr>
                     @empty

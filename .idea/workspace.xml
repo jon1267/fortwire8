@@ -4,6 +4,7 @@
     <list default="true" id="5df7a510-086e-41e3-a215-6c65208a7970" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UserComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UserComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-component.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +215,8 @@
       <workItem from="1608138964402" duration="10324000" />
       <workItem from="1608149488945" duration="487000" />
       <workItem from="1608204375952" duration="8990000" />
-      <workItem from="1608227641563" duration="5876000" />
+      <workItem from="1608227641563" duration="6463000" />
+      <workItem from="1608314412344" duration="3159000" />
     </task>
     <servers />
   </component>
